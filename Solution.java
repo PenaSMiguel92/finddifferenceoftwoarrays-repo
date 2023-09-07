@@ -6,14 +6,15 @@ public class Solution {
         List<List<Integer>> ans = new ArrayList<>();
         Set<Integer> s1 = Arrays.stream(nums1).boxed().collect(Collectors.toSet());
         Set<Integer> s2 = Arrays.stream(nums2).boxed().collect(Collectors.toSet());
-        
-        List<Integer> res1 = new ArrayList<>(s1);
-        res1.removeAll(s2);
-        List<Integer> res2 = new ArrayList<>(s2);
-        res2.removeAll(s1);
 
-        ans.add(res1);
-        ans.add(res2);
+        ans.add(getDiff(s1, s2));
+        ans.add(getDiff(s2, s1));
         return ans;
+    }
+    
+    public List<Integer> getDiff(Set<Integer> set1, Set<Integer> set2) {
+        List<Integer> res1 = new ArrayList<>(set1);
+        res1.removeAll(set2);
+        return res1;
     }
 }
