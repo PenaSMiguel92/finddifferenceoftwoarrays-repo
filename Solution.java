@@ -15,12 +15,11 @@ public class Solution {
     
     public List<Integer> findUnique(List<Integer> list1, List<Integer> list2) {
         List<Integer> ans = new ArrayList<>();
-        Collections.copy(ans, list1);
         Iterator<Integer> iterator = ans.iterator();
         while (iterator.hasNext()) {
             int num = iterator.next();
-            if (list2.contains(num))
-                iterator.remove();
+            if (!list2.contains(num))
+                ans.add(num);
         }
         return ans;
     }
