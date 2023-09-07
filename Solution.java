@@ -6,6 +6,7 @@ public class Solution {
         List<List<Integer>> ans = new ArrayList<>();
         List<Integer> list1 = Arrays.stream(nums1).boxed().collect(Collectors.toList());
         List<Integer> list2 = Arrays.stream(nums2).boxed().collect(Collectors.toList());
+
         ans.add(findUnique(list1, list2));
         ans.add(findUnique(list2, list1));
 
@@ -13,13 +14,13 @@ public class Solution {
     }
     
     public List<Integer> findUnique(List<Integer> list1, List<Integer> list2) {
-        List<Integer> ans = new ArrayList<>();
-        Iterator<Integer> iterator = ans.iterator();
+        HashSet<Integer> ans = new HashSet<>();
+        Iterator<Integer> iterator = list1.iterator();
         while (iterator.hasNext()) {
             int num = iterator.next();
             if (!list2.contains(num))
                 ans.add(num);
         }
-        return ans;
+        return ans.stream().toList();
     }
 }
