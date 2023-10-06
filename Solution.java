@@ -2,7 +2,7 @@ import java.util.*;
 
 public class Solution {
     public List<List<Integer>> findDifference(int[] nums1, int[] nums2) {
-        List<List<Integer>> ans = new ArrayList<>();
+        List<List<Integer>> ans = new ArrayList<>(2);
         Set<Integer> s1 = new HashSet<>();
         Set<Integer> s2 = new HashSet<>();
 
@@ -18,7 +18,7 @@ public class Solution {
     }
     
     public List<Integer> getDiff(Set<Integer> set1, Set<Integer> set2) {
-        List<Integer> res1 = new ArrayList<>(set1);
+        List<Integer> res1 = new LinkedList<>(set1);
         res1.removeAll(set2);
         return res1;
     }
